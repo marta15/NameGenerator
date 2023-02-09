@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NameGenerator } from './NameGenerator';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'name-generator';
+  numChar: number = 1;
+  nameType: string = "";
+  results: string[] = [];
+
+
+  onLengthChange(ev: Event) {
+    this.numChar = parseInt((ev.target as HTMLInputElement).value);
+  }
+
+  onTypeChange(ev: Event) {
+    this.nameType = (ev.target as HTMLInputElement).value;
+  }
+
+  onButtonClick() {
+    this.results = NameGenerator.generate(this.nameType, this.numChar);
+  }
+
+  generateName() {
+
+  }
 }

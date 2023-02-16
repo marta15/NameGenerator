@@ -1,4 +1,4 @@
-import { adjectives, animals, names, places, people, towns, titles } from '../dictionaries'
+import { adjectives, animals, names, places, people, towns, titles, weird } from '../dictionaries'
 
 export enum NameType {
     username = 'username',
@@ -42,7 +42,7 @@ export abstract class NameGenerator {
         else if (type === NameType.pet) {
             for (let i = 0; i < num; i++) {
                 results.push(this.titleCase(titles[Math.floor(Math.random() * (titles.length))]) +
-                    ' ' + this.titleCase(animals[Math.floor(Math.random() * animals.length)]))
+                    ' ' + this.titleCase(weird[Math.floor(Math.random() * weird.length)]))
             }
         }
         else results.push("Something went wrong");

@@ -5,6 +5,7 @@ import places from './places';
 import people from './people';
 import towns from './towns';
 import titles from './titles';
+import weird from './weird';
 
 
-export { adjectives, animals, names, places, people, towns, titles };
+export { adjectives, animals, names, places, people, towns, titles, weird };

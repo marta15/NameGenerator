@@ -1,39 +1,56 @@
-<div class="section">
-  <div class="container">
-    <h1 class="title">Name generator</h1>
-    <form action="">
-      <div class="field">
-        <label class="label" for="type">Select type: </label>
-        <div class="control">
-          <div class="select">
-            <select id="type" name="name-type" (change)="onTypeChange($event)">
-              <option value="">--Please choose a type--</option>
-              <option value="username">Username</option>
-              <option value="geo">Geographical name</option>
-              <option value="town">Town name</option>
-              <option value="character">Character name</option>
-              <option value="pet">Pet name</option>
-              <option value="app">App name</option>
-            </select>
+<div class="section py-4 px-3 main-content">
+  <div class="container-md h-100">
+    <div class="row">
+      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+        <h1 class="title mb-2 mb-md-4 text-center">Name generator</h1>
+        <div class="card form-card">
+          <div class="card-body">
+            <form action="">
+              <div class="row">
+                <div class="col-md mb-2">
+                  <label class="form-label" for="type">Type: </label>
+                  <select class="form-select" id="type" name="name-type" (change)="onTypeChange($event)">
+                    <option value="">--Choose a type--</option>
+                    <option value="username">Username</option>
+                    <option value="geo">Geographical name</option>
+                    <option value="town">Town name</option>
+                    <option value="character">Character name</option>
+                    <option value="pet">Pet name</option>
+                  </select>
+                </div>
+                <div class="col-md mb-2">
+                  <label class="form-label" for="length">Number of suggestions: </label>
+                  <input class="form-control w-75" id="length" type="number" [value]="numChar"
+                    (input)="onLengthChange($event)" max="50" min="1">
+                </div>
+              </div>
+              <div class="d-grid gap-2 mt-2 mt-md-4 mb-1">
+                <button class="btn-generate p-2" (click)="onButtonClick()" type="button"
+                  [disabled]="!(nameType && numChar)">Generate!</button>
+              </div>
+            </form>
           </div>
         </div>
-
       </div>
-      <div class="field">
-        <label class="label" for="length">Enter length: </label>
-        <div class="control">
-          <input class="input" id="length" type="number" [value]="numChar" (input)="onLengthChange($event)" max="10"
-            min="1">
+    </div>
+
+    <div class="names-container">
+      <div *ngFor="let result of results" class="name-card">
+        <div class="card py-md-3 mt-2">
+          <div class="card-body">
+            <input class="input w-100 text-center" [value]="result" readonly>
+          </div>
         </div>
       </div>
-      <div class="control">
-        <button class="button is-link is-fullwidth" (click)="onButtonClick()" type="button"
-          [disabled]="!(nameType && numChar)">Generate!</button>
-      </div>
-      <div class="field">
-        <input *ngFor="let result of results" class="input" [value]="result" readonly>
-      </div>
 
-    </form>
+    </div>
   </div>
 </div>
+<footer class="footer p-sm-3">
+  <div class="container">
+    &copy;2023 Background
+    image by <a
+      href="https://www.freepik.com/free-vector/evening-cloudy-sky-purple-background-with-group-cumulus-cirrus-clouds-flat-cartoon-illustration_16607919.htm#page=2&query=illustrations&position=10&from_view=keyword&track=sph">macrovector</a>
+    on Freepik
+  </div>
+</footer>

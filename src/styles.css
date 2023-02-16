@@ -1,1 +1,206 @@
-@import 'bulma/css/bulma.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+html {
+    height: 100%;
+}
+
+body {
+    color: #171B52;
+    font-family: 'Averia Serif Libre', cursive;
+    height: 100%;
+}
+
+h1.title {
+    color: #ffb7bf;
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: #E4D6FF 1px 1px 4px;
+    animation: blurFadeIn 1s cubic-bezier(0, 0.55, 0.45, 1) both;
+    animation-delay: 0.5s;
+}
+
+@keyframes blurFadeIn {
+    0% {
+        opacity: 0;
+        text-shadow: 1px 1px 2px #FDF6E4;
+        transform: scale(0.2);
+    }
+
+    50%,
+    75% {
+        opacity: 0.8;
+        text-shadow: 1px 1px 2px #FDF6E4, 1px 1px 4px #FDF6E4, 1px 1px 15px #FDF6E4;
+        transform: scale(1.3);
+    }
+
+    100% {
+        opacity: 1;
+        text-shadow: 1px 1px 3px #FDF6E4;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.btn-generate {
+    color: #F8F7F7;
+    background-color: #7360B7;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    letter-spacing: 0.3em;
+    box-shadow: 0 6px #6352a0;
+    border: none;
+}
+
+.btn-generate:hover {
+    color: #F8F7F7;
+    background-color: #7360B7;
+    box-shadow: 0 4px #6352a0;
+    top: 2px;
+    border: none;
+}
+
+.btn-generate:active {
+    color: #F8F7F7;
+    background-color: #7360B7;
+    box-shadow: none;
+    top: 6px;
+    border: none;
+}
+
+.btn-generate:disabled,
+.btn-generate[disabled] {
+    color: #F8F7F7;
+    background-color: #8f85b4;
+    font-family: 'Cinzel', serif;
+    display: block;
+    position: relative;
+    letter-spacing: 0.3em;
+    box-shadow: 0 6px #7a7392;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.form-card {
+    box-shadow: 0px 0px 15px #E4D6FF;
+    margin: 1em auto;
+}
+
+.name-card .card {
+    background-color: #FDEBEB;
+    animation: fadeIn 1s cubic-bezier(0, 0.55, 0.45, 1) both;
+    animation-delay: 0.5s;
+}
+
+.name-card .card-body,
+.name-card input {
+    border: none;
+    background-color: #FDEBEB;
+}
+
+.name-card input {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+}
+
+.name-card:nth-child(3n) .card,
+.name-card:nth-child(3n) .card-body,
+.name-card:nth-child(3n) input {
+    background-color: #E4D6FF;
+    animation-delay: 0.2s;
+}
+
+.name-card:nth-child(3n+1) .card,
+.name-card:nth-child(3n+1) .card-body,
+.name-card:nth-child(3n+1) input {
+    background-color: #dbe5fc;
+    animation-delay: 0.3s;
+}
+
+.main-content {
+    height: 90%;
+}
+
+.names-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    max-height: 60%;
+    min-height: 0;
+    overflow: auto;
+    padding: 2em;
+}
+
+@media (max-width: 480px) {
+    .names-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: unset;
+        align-content: space-between;
+    }
+
+    h1.title {
+        font-size: 1.5em;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .name-card .card {
+        animation-delay: 0.2s;
+    }
+
+    .name-card {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+
+    .form-card {
+        max-width: 85%;
+        font-size: 0.8em;
+    }
+
+    .form-card input,
+    .form-card select {
+        font-size: 0.8em;
+    }
+}
+
+input,
+textarea,
+select {
+    font-family: 'Averia Serif Libre', cursive;
+    font-weight: bold;
+}
+
+footer.footer {
+    color: #FDEBEB;
+    font-family: 'Averia Serif Libre', cursive;
+    margin: auto 0 0;
+    font-size: 0.8em;
+}
+
+footer.footer a {
+    color: #E4D6FF;
+    font-family: 'Averia Serif Libre', cursive;
+}

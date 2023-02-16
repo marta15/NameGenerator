@@ -7,7 +7,7 @@ import { NameGenerator } from './NameGenerator';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  numChar: number = 1;
+  numChar: number = 10;
   nameType: string = "";
   results: string[] = [];
 
